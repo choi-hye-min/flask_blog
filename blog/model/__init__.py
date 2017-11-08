@@ -1,4 +1,4 @@
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
-__all__ = ['user', 'photo']
+__all__ = ['user']

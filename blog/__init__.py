@@ -14,4 +14,8 @@ def create_app():
     blog_app.config.from_object('blog.blog_config.ApplicationMode')
     print_settings(blog_app.config.items())
 
+    from flask_sqlalchemy import SQLAlchemy
+    global db
+    db = SQLAlchemy(blog_app)
+
     return blog_app
