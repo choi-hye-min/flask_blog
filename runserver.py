@@ -1,10 +1,10 @@
 from blog import create_app
+from blog.blog_config import ApplicationMode
 
 application = create_app()
 
 if __name__ == '__main__':
     application.run(
-        debug=True,
-        host='0.0.0.0',
-        port=5000
+        host=ApplicationMode.HOST,
+        port=ApplicationMode.PORT
     )
