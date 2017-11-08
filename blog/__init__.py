@@ -14,8 +14,14 @@ def create_app():
     blog_app.config.from_object('blog.blog_config.ApplicationMode')
     print_settings(blog_app.config.items())
 
-    from flask_sqlalchemy import SQLAlchemy
-    global db
-    db = SQLAlchemy(blog_app)
+    # from flask_sqlalchemy import SQLAlchemy
+    # global db
+    # db = SQLAlchemy(blog_app)
+
+    from blog.database import DBManager
+    from blog.blog_config import ApplicationMode
+
+    DBManager.init(ApplicationMode.SQLALCHEMY_DATABASE_URI)
+    DBManager.init_db()
 
     return blog_app
