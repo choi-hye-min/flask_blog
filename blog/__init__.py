@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask
+
+from blog.blueprients import main
 
 def print_settings(config):
     print('========================================================')
@@ -12,11 +14,7 @@ def create_app():
     blog_app = Flask(__name__)
 
     blog_app.config.from_object('blog.blog_config.ApplicationMode')
-    print_settings(blog_app.config.items())
-
-    # from flask_sqlalchemy import SQLAlchemy
-    # global db
-    # db = SQLAlchemy(blog_app)
+    # print_settings(blog_app.config.items()) # Application Config 설정표시
 
     from blog.database import DBManager
     from blog.blog_config import ApplicationMode
@@ -24,11 +22,7 @@ def create_app():
     DBManager.init(ApplicationMode.SQLALCHEMY_DATABASE_URI)
     DBManager.init_db()
 
-    # Views
-    from blog.views import main
-
-    @blog_app.route('/')
-    def main():
-        return 'main'
-
     return blog_app
+
+blog_app = create_app()
+from blog.views import main
