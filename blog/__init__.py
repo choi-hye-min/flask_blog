@@ -24,4 +24,7 @@ def create_app():
     DBManager.init(ApplicationMode.SQLALCHEMY_DATABASE_URI)
     DBManager.init_db()
 
+    # Views
+    from blog.views import main
+
     return blog_app

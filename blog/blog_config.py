@@ -14,7 +14,7 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_ECHO = True
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY = 'aerga5h4uy56rtujsrRTHRThderfg53dfg35HGERHGRHJ4rheszrgh'
-    HOST = '0.0.0.0'
+    HOST = '127.0.0.1'
     PORT = 5000
 
 class TestingConfig(Config):
