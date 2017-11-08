@@ -27,4 +27,8 @@ def create_app():
     # Views
     from blog.views import main
 
+    @blog_app.route('/')
+    def main():
+        return 'main'
+
     return blog_app
